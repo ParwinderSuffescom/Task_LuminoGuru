@@ -2842,11 +2842,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 22.5.2
-  resolution: "@types/node@npm:22.5.2"
+  version: 22.5.3
+  resolution: "@types/node@npm:22.5.3"
   dependencies:
     undici-types: ~6.19.2
-  checksum: 5e47839dd1919b39927a5552137ded5d3f18d9ff7729083ba851d640a6a0997ee747b9e2cf4c8a1f8418ad92ef7f0ada4fdc2d005dad2efb39fa80a5c7f6d23d
+  checksum: 50a5075e4e8bc874a9fe962447341b6b49bd79cf2801fadd3e31d2bda60decba8d907e3150887afc9f883d819cc42c7e862fffc934049d37cb5589e0a2afbcc1
   languageName: node
   linkType: hard
 
@@ -2854,6 +2854,15 @@ __metadata:
   version: 15.7.12
   resolution: "@types/prop-types@npm:15.7.12"
   checksum: ac16cc3d0a84431ffa5cfdf89579ad1e2269549f32ce0c769321fdd078f84db4fbe1b461ed5a1a496caf09e637c0e367d600c541435716a55b1d9713f5035dfe
+  languageName: node
+  linkType: hard
+
+"@types/react-native@npm:^0.73.0":
+  version: 0.73.0
+  resolution: "@types/react-native@npm:0.73.0"
+  dependencies:
+    react-native: "*"
+  checksum: a764ca5d876dae3c109da449f736c44271b3b236d0d6e836c078247af1419f6d851600c56bb0c26f3e0d1b4be6eaac56b65c1f74ad0f0d05baf8b65dd1d5c597
   languageName: node
   linkType: hard
 
@@ -3140,10 +3149,12 @@ __metadata:
     "@react-navigation/native-stack": ^6.11.0
     "@reduxjs/toolkit": ^2.2.7
     "@types/react": ^18.2.6
+    "@types/react-native": ^0.73.0
     "@types/react-test-renderer": ^18.0.0
     axios: ^1.7.7
     babel-jest: ^29.6.3
     eslint: ^8.19.0
+    expo-status-bar: ^1.12.1
     i18n-js: latest
     jest: ^29.6.3
     prettier: 2.8.8
@@ -4971,8 +4982,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-react@npm:^7.30.1":
-  version: 7.35.1
-  resolution: "eslint-plugin-react@npm:7.35.1"
+  version: 7.35.2
+  resolution: "eslint-plugin-react@npm:7.35.2"
   dependencies:
     array-includes: ^3.1.8
     array.prototype.findlast: ^1.2.5
@@ -4994,7 +5005,7 @@ __metadata:
     string.prototype.repeat: ^1.0.0
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
-  checksum: 9c40df63ed66cd3a58b7d25579dcfd09eb37b88926537ef700108219a8d39ab8efcea13ab7fe50f980f3b56dedf79b76e11726ea6c93da801d39373776178690
+  checksum: 88dfb91d52a10fa0333199fa4abaa8d1112066d8fdc5df88c136d1cc24145b8d92bb7292f82a3781aef9c3ec91990b4461dbd1fa5eee471df5517014c6e843f9
   languageName: node
   linkType: hard
 
@@ -5198,6 +5209,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-status-bar@npm:^1.12.1":
+  version: 1.12.1
+  resolution: "expo-status-bar@npm:1.12.1"
+  checksum: 82f2e9096660cdb521b920662908b93e1909c2bbe776802c314dff6e0863300d19ba4b9e093825b2bdc094f333010df0b8ed11fcb330e4c29a16c2d55da0aa96
+  languageName: node
+  linkType: hard
+
 "exponential-backoff@npm:^3.1.1":
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
@@ -5381,9 +5399,9 @@ __metadata:
   linkType: hard
 
 "flow-parser@npm:0.*":
-  version: 0.245.0
-  resolution: "flow-parser@npm:0.245.0"
-  checksum: 42ef1c9ed8beec9880e72955130d88643e3d2431e43bd34ce25c4d89cf79e8978d094f5e56a17b4d17074fe9b15da43efd89e9cfa221d7d0627821edffe620a9
+  version: 0.245.1
+  resolution: "flow-parser@npm:0.245.1"
+  checksum: 67417f86b0db545b008fa0203a4aea847d250e426d706e6387b9d9f8af1454d0a29ded7e251ada9adfc7fccd44c748be84b10349f5af04d53661ba7070f4a46f
   languageName: node
   linkType: hard
 
@@ -5890,7 +5908,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18n-js@npm:latest":
+i18n-js@latest:
   version: 4.4.3
   resolution: "i18n-js@npm:4.4.3"
   dependencies:
@@ -8786,7 +8804,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.75.2":
+"react-native@npm:*, react-native@npm:0.75.2":
   version: 0.75.2
   resolution: "react-native@npm:0.75.2"
   dependencies:
@@ -10761,11 +10779,11 @@ __metadata:
   linkType: hard
 
 "yaml@npm:^2.2.1":
-  version: 2.5.0
-  resolution: "yaml@npm:2.5.0"
+  version: 2.5.1
+  resolution: "yaml@npm:2.5.1"
   bin:
     yaml: bin.mjs
-  checksum: a116dca5c61641d9bf1f1016c6e71daeb1ed4915f5930ed237d45ab7a605aa5d92c332ff64879a6cd088cabede008c778774e3060ffeb4cd617d28088e4b2d83
+  checksum: 31275223863fbd0b47ba9d2b248fbdf085db8d899e4ca43fff8a3a009497c5741084da6871d11f40e555d61360951c4c910b98216c1325d2c94753c0036d8172
   languageName: node
   linkType: hard
 
