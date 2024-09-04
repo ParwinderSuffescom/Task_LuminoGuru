@@ -62,7 +62,7 @@ export const toastOptions: ToastOptions = {
     fontSize: 14,
     lineHeight: 21,
     marginHorizontal: spacing.sm,
-    color: colors.textDim,
+    color: colors.palette.black,
   },
   //   icon: <ToastIcon image="logo" />,
   successIcon: <ToastIcon image="success" />,

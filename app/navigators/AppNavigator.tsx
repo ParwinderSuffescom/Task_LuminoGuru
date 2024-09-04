@@ -9,14 +9,14 @@ import {
 } from '@react-navigation/native-stack';
 import React, {useEffect} from 'react';
 import {useColorScheme} from 'react-native';
-import * as Screens from '../../screens';
+import * as Screens from '../screens';
 import {navigationRef, useBackButtonHandler} from './navigationUtilities';
-import {colors} from '../../theme';
+import {colors} from '../theme';
 import {ConnectedProps, connect} from 'react-redux';
 import BootSplash from 'react-native-bootsplash';
-import {RootState} from '../../store';
-import BaseConfig from '../../config';
-import {delay} from '../../utils/utils';
+import {RootState} from '../store';
+import BaseConfig from '../config';
+import {delay} from '../utils/utils';
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -33,6 +33,7 @@ import {delay} from '../../utils/utils';
  */
 export type AppStackParamList = {
   Home: undefined;
+  Cart: undefined;
 };
 
 /**
@@ -60,6 +61,7 @@ const AppStack = (_props: AppStackProps) => {
         name="Home"
         component={Screens.Home}
       />
+      <Stack.Screen name="Cart" component={Screens.Cart} />
     </Stack.Navigator>
   );
 };

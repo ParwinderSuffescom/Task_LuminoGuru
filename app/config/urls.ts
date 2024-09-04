@@ -1,5 +1,8 @@
+import {getProductPayload} from '../slices/home.types';
+
 const URLs = {
   base: 'https://dummyjson.com/',
-  getProducts: (skip: number) => `products?limit=10&skip=${skip}`,
+  getProducts: ({skip, search}: getProductPayload) =>
+    `/products/search?q=${search}&limit=10&skip=${skip}`,
 };
 export default URLs;

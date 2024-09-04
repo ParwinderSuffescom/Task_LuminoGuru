@@ -4,6 +4,9 @@ const palette = {
   itemBackground: '#F8F9FB',
   black: '#000000',
   white: '#FFFFFF',
+  cartCountColor: '#F9B023',
+  placeHolderColor: '#8891A5',
+  border: '#EBEBFB',
 
   // Toast Colors
   success: '#00C851',

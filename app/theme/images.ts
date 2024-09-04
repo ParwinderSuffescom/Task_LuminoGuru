@@ -5,8 +5,8 @@ export const images = {
   back: require(PATH + 'back.png'),
   bag: require(PATH + 'bag.png'),
   down: require(PATH + 'down.png'),
-  favourite: require(PATH + 'favourite.png'),
-  favouriteFilled: require(PATH + 'favouriteFilled.png'),
+  favorite: require(PATH + 'favorite.png'),
+  favoriteFilled: require(PATH + 'favoriteFilled.png'),
   minus: require(PATH + 'minus.png'),
   minusFilled: require(PATH + 'minusFilled.png'),
   plus: require(PATH + 'plus.png'),
@@ -16,6 +16,7 @@ export const images = {
   success: require(PATH + 'success.png'),
   danger: require(PATH + 'danger.png'),
   warning: require(PATH + 'warning.png'),
+  emptyCart: require(PATH + 'emptyCart.png'),
 } as const;
 
 export type AppImage = keyof typeof images;

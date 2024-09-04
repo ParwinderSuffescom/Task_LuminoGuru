@@ -1,19 +1,43 @@
-import {Image, StyleSheet, TouchableOpacity} from 'react-native';
-import React from 'react';
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  TextInput,
+  View,
+  ViewStyle,
+} from 'react-native';
+import React, {useRef} from 'react';
 import {colors, images} from '../theme';
+import {TextField} from './TextField';
+import Animated from 'react-native-reanimated';
 
 type Props = {
-  onPress?: () => void;
+  value: string;
+  onChangeText: (text: string) => void;
 };
 
-const SearchBar = ({onPress}: Props) => {
+const SearchBar = ({value, onChangeText}: Props) => {
+  const textFieldRef = useRef<TextInput>(null);
+  const onPressFocus = () => {
+    textFieldRef.current?.focus();
+  };
+
   return (
-    <TouchableOpacity
-      disabled={!onPress}
-      onPress={onPress}
-      style={styles.container}>
-      <Image source={images.search} />
-    </TouchableOpacity>
+    <Animated.View>
+      <Pressable onPress={onPressFocus} style={styles.container}>
+        <Image source={images.search} />
+        <View style={styles.textContainer}>
+          <TextField
+            ref={textFieldRef}
+            selectionColor={colors.palette.textDim}
+            cursorColor={colors.palette.textDim}
+            value={value}
+            onChangeText={onChangeText}
+            placeholderTx="home.searchPlaceholder"
+          />
+        </View>
+      </Pressable>
+    </Animated.View>
   );
 };
 
@@ -23,8 +47,17 @@ const styles = StyleSheet.create({
   container: {
     height: 55,
     backgroundColor: colors.palette.primaryDark,
+    borderRadius: 30,
     flexDirection: 'row',
     alignItems: 'center',
-    width: '100%',
-  },
+    paddingHorizontal: 20,
+    alignSelf: 'center',
+    width: '90%',
+  } as ViewStyle,
+  textContainer: {
+    flex: 1,
+    height: '100%',
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+  } as ViewStyle,
 });

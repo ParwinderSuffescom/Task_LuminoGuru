@@ -8,6 +8,7 @@ export type PaginatedResponse<T> = {
 };
 
 export interface Product {
+  count?: number;
   id: number;
   title: string;
   description: string;
@@ -56,4 +57,11 @@ export interface Meta {
 export type ProductState = {
   productListLoading: LoadStatus;
   productListData: PaginatedResponse<Product>;
+  favoriteList: Product[];
+  cartItemList: Product[];
+};
+
+export type getProductPayload = {
+  skip: number;
+  search: string;
 };

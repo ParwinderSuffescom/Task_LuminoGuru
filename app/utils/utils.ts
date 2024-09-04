@@ -11,7 +11,7 @@ export function delay(ms: number) {
 }
 export const ScreenWidth = Dimensions.get('screen').width;
 export const ScreenHeight = Dimensions.get('screen').height;
-export const hitSlop = {left: 5, top: 5, right: 5, bottom: 5};
+export const hitSlop = {left: 15, top: 15, right: 15, bottom: 15};
 
 type DebouncedFunction<T extends (...args: any[]) => any> = (
   ...args: Parameters<T>

@@ -16,7 +16,7 @@ import Toast, {ToastProvider} from 'react-native-toast-notifications';
 import {store} from './store';
 import {toastProps} from './utils/toast';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {AppNavigator} from './screens/navigators';
+import {AppNavigator} from './navigators';
 
 // Disable font scaling
 interface TextWithDefaultProps extends Text {

@@ -7,29 +7,29 @@ const api = axios.create({
     Accept: 'application/json',
   },
 });
-// api.interceptors.request.use(request => {
-//   console.log(
-//     '↓',
-//     '\n',
-//     'Request URL ====>',
-//     URLs.base + request.url,
-//     '\n',
-//     '\n',
-//     'Request Method ====>',
-//     request.method,
-//     '\n',
-//     '\n',
-//     'Request Data ====>',
-//     request.data,
-//     '\n',
-//     '\n',
-//     'Request Headers ====>',
-//     request.headers,
-//     '\n',
-//     '↑',
-//   );
-//   return request;
-// });
+api.interceptors.request.use(request => {
+  console.log(
+    '↓',
+    '\n',
+    'Request URL ====>',
+    URLs.base + request.url,
+    '\n',
+    '\n',
+    'Request Method ====>',
+    request.method,
+    '\n',
+    '\n',
+    'Request Data ====>',
+    request.data,
+    '\n',
+    '\n',
+    'Request Headers ====>',
+    request.headers,
+    '\n',
+    '↑',
+  );
+  return request;
+});
 
 api.interceptors.response.use(
   response => {
@@ -37,9 +37,9 @@ api.interceptors.response.use(
       response.config.url,
       'api response =>',
       // JSON.stringify(response?.data?.body, null, 2),
-      response?.data,
+      response.data,
     );
-    if (response?.data != null && response?.data?.success === true) {
+    if (response != null && response?.status === 200) {
       return response;
     } else {
       let message = response?.data?.message ?? 'Unknown error';
