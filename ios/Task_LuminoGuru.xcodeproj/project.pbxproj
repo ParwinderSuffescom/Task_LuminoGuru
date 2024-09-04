@@ -12,6 +12,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		18B4B8161D7A42D59049291B /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 063218C5BA4248569532AA6B /* BootSplash.storyboard */; };
+		4BA495B214F6402AABB4F850 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 953B3FA80CF64CFAB8EA54B6 /* Colors.xcassets */; };
 		7699B88040F8A987B510C191 /* libPods-Task_LuminoGuru-Task_LuminoGuruTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Task_LuminoGuru-Task_LuminoGuruTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		CFE5787C830A8654E1AD742B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D500C8E1D5463CC5F5B871B3 /* PrivacyInfo.xcprivacy */; };
@@ -31,6 +33,7 @@
 		00E356EE1AD99517003FC87E /* Task_LuminoGuruTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Task_LuminoGuruTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* Task_LuminoGuruTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Task_LuminoGuruTests.m; sourceTree = "<group>"; };
+		063218C5BA4248569532AA6B /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = Task_LuminoGuru/BootSplash.storyboard; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Task_LuminoGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task_LuminoGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Task_LuminoGuru/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Task_LuminoGuru/AppDelegate.mm; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-Task_LuminoGuru.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Task_LuminoGuru.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Task_LuminoGuru/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Task_LuminoGuru-Task_LuminoGuruTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_LuminoGuru-Task_LuminoGuruTests.release.xcconfig"; path = "Target Support Files/Pods-Task_LuminoGuru-Task_LuminoGuruTests/Pods-Task_LuminoGuru-Task_LuminoGuruTests.release.xcconfig"; sourceTree = "<group>"; };
+		953B3FA80CF64CFAB8EA54B6 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = Task_LuminoGuru/Colors.xcassets; sourceTree = "<group>"; };
 		D500C8E1D5463CC5F5B871B3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Task_LuminoGuru/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -97,6 +101,8 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				D500C8E1D5463CC5F5B871B3 /* PrivacyInfo.xcprivacy */,
+				063218C5BA4248569532AA6B /* BootSplash.storyboard */,
+				953B3FA80CF64CFAB8EA54B6 /* Colors.xcassets */,
 			);
 			name = Task_LuminoGuru;
 			sourceTree = "<group>";
@@ -249,6 +255,8 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				CFE5787C830A8654E1AD742B /* PrivacyInfo.xcprivacy in Resources */,
+				18B4B8161D7A42D59049291B /* BootSplash.storyboard in Resources */,
+				4BA495B214F6402AABB4F850 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
