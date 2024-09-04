@@ -1,141 +1,15 @@
-// import {FlatList, Image, StyleSheet, View, ViewStyle} from 'react-native';
-// import {connect, ConnectedProps} from 'react-redux';
-// import {AppStackScreenProps} from '../navigators';
-// import {RootState} from '../store';
-// import {homeActions} from '../slices/home.slice';
-// import {Product} from '../slices/home.types';
-// import {Screen} from '../components/Screen';
-// import AppHeader from './components/AppHeader';
-// import CartItems from './components/CartItems';
-// import React, {memo, useCallback, useEffect, useMemo} from 'react';
-// import {colors, images, spacing} from '../theme';
-// import {Button} from '../components/Button';
-// import {Text} from '../components/Text';
-// import {TxKeyPath} from '../i18n';
-// import {scale} from 'react-native-size-matters';
-
-// type NavigationProps = AppStackScreenProps<'Cart'>;
-// type StoreProps = ConnectedProps<typeof connector>;
-// type Props = NavigationProps & StoreProps;
-
-// const CartScreen = (props: Props) => {
-//   useEffect(() => {
-//     calculatePrice();
-//   }, []);
-
-//   const calculatePrice = useMemo(() => {}, [props.cartItemList]);
-
-//   const renderItem = ({item}: {item: Product}) => {
-//     return (
-//       <CartItems
-//         item={item}
-//         onPressMinus={cartItem => {
-//           props.removeItem(cartItem);
-//         }}
-//         onPressAdd={cartItem => {
-//           props.addMoreItem(cartItem);
-//         }}
-//       />
-//     );
-//   };
-
-//   const ListEmptyComponent = useCallback(() => {
-//     return (
-//       <View style={styles.emptyCart}>
-//         <Image source={images.emptyCart} />
-//         <Text size="md" tx="cart.yourCartIsEmpty" />
-//       </View>
-//     );
-//   }, []);
-
-//   return (
-//     <Screen
-//       preset="fixed"
-//       contentContainerStyle={styles.mainContainer}
-//       renderHeader={<AppHeader cartItemList={props.cartItemList} />}
-//       safeAreaEdges={['top', 'bottom']}>
-//       <FlatList
-//         style={{flex: spacing.one}}
-//         contentContainerStyle={styles.mainContainer}
-//         data={props.cartItemList ?? []}
-//         renderItem={renderItem}
-//         keyExtractor={item => item?.id.toString()}
-//         ListEmptyComponent={ListEmptyComponent}
-//       />
-//       {props.cartItemList?.length ? (
-//         <View style={styles.buttonContainer}>
-//           <RowItem title="cart.subtotal" value={`$${'35.96'}`} />
-//           <RowItem title="cart.delivery" value={`$${'35.96'}`} />
-//           <RowItem title="cart.total" value={`$${'35.96'}`} />
-//           <Button
-//             style={{marginVertical: scale(20)}}
-//             onPress={() => {
-//               toast.show('Your order has been created', {
-//                 type: 'success',
-//               });
-//             }}
-//             tx="cart.proceedToCheckout"
-//           />
-//         </View>
-//       ) : null}
-//     </Screen>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   mainContainer: {flexGrow: 1, paddingHorizontal: 10} as ViewStyle,
-
-//   emptyCart: {
-//     flex: 0.8,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   } as ViewStyle,
-
-//   buttonContainer: {
-//     borderRadius: 15,
-//     backgroundColor: colors.palette.itemBackground,
-//     width: '95%',
-//     alignSelf: 'center',
-//     marginBottom: 5,
-//     padding: 10,
-//     marginTop: 5,
-//   } as ViewStyle,
-
-//   row: {
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//     justifyContent: 'space-between',
-//     marginTop: 10,
-//   } as ViewStyle,
-// });
-
-// const mapStateToProps = (state: RootState) => ({
-//   cartItemList: state.home.cartItemList,
-// });
-// const mapDispatch = {
-//   addOrRemoveToCart: (payload: Product) =>
-//     homeActions.addOrRemoveToCart(payload),
-//   addMoreItem: (payload: Product) => homeActions.addMoreItem(payload),
-//   removeItem: (payload: Product) => homeActions.removeItem(payload),
-// };
-
-// const connector = connect(mapStateToProps, mapDispatch);
-// export const Cart = connector(CartScreen);
-
-// const RowItem = memo(({title, value}: {title: TxKeyPath; value: string}) => {
-//   return (
-//     <View style={styles.row}>
-//       <Text style={{color: colors.palette.placeHolderColor}} tx={title} />
-//       <Text text={value} />
-//     </View>
-//   );
-// });
-
-import React, {memo, useCallback, useEffect, useState} from 'react';
+import React, {
+  memo,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from 'react';
 import {
   FlatList,
   Image,
   LayoutAnimation,
+  Platform,
   StyleSheet,
   Vibration,
   View,
@@ -164,6 +38,14 @@ const deliveryFee = 10;
 const CartScreen = (props: Props) => {
   const [totalPrice, setTotalPrice] = useState<string>('0');
   const [totalItemCount, setTotalItemCount] = useState<number>(0);
+
+  useLayoutEffect(() => {
+    if (Platform.OS === 'android') {
+      props.navigation.setOptions({
+        navigationBarColor: colors.palette.white,
+      });
+    }
+  }, [props.navigation]);
 
   useEffect(() => {
     calculatePrice();
