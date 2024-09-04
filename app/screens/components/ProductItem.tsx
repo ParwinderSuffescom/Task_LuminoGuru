@@ -47,7 +47,7 @@ const ProductItem = ({
     <View style={styles.container}>
       <Image
         defaultSource={images.dummyImage}
-        style={[styles.image]}
+        style={[item?.thumbnail ? styles.image : styles.dummyImageStyle]}
         source={item?.thumbnail ? {uri: item.thumbnail} : images.dummyImage}
       />
       <TouchableOpacity
@@ -110,6 +110,13 @@ const styles = StyleSheet.create({
 
   image: {
     width: '100%',
+    flex: 1,
+    resizeMode: 'contain',
+  } as ImageStyle,
+
+  dummyImageStyle: {
+    width: '40%',
+    alignSelf: 'center',
     flex: 1,
     resizeMode: 'contain',
   } as ImageStyle,

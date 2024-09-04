@@ -26,7 +26,7 @@ const CartItems = ({item, onPressAdd, onPressMinus}: Props) => {
     <View style={styles.container}>
       <Image
         defaultSource={images.dummyImage}
-        style={[styles.image]}
+        style={[item?.thumbnail ? styles.image : styles.imageDummy]}
         source={item?.thumbnail ? {uri: item.thumbnail} : images.dummyImage}
       />
       <View style={styles.textContainer}>
@@ -81,6 +81,14 @@ const styles = StyleSheet.create({
   image: {
     width: 60,
     height: 60,
+    marginRight: 10,
+    resizeMode: 'contain',
+  } as ImageStyle,
+
+  imageDummy: {
+    width: 35,
+    height: 35,
+    marginRight: 10,
     resizeMode: 'contain',
   } as ImageStyle,
 

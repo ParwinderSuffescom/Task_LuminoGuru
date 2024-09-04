@@ -101,7 +101,7 @@ const CartIcon = memo(
         {count > 0 ? (
           <Animated.View style={[animatedStyle, styles.cartContainer]}>
             <Pressable style={styles.cartCountContainer} onPress={onPressCart}>
-              <Text preset="invert" size="xxs" text={count?.toString()} />
+              <Text preset="invert" size="xxxs" text={count?.toString()} />
             </Pressable>
           </Animated.View>
         ) : null}

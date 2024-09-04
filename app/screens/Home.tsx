@@ -7,6 +7,7 @@ import {
   StatusBar,
   StyleSheet,
   TextStyle,
+  Vibration,
   View,
   ViewStyle,
 } from 'react-native';
@@ -169,7 +170,8 @@ const HomeScreen = (props: Props) => {
         onPressFavorite={props.addOrRemoveFavorite}
         onPressAddToCart={cartItem => {
           LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
-          setHideCartView(false);
+          // setHideCartView(false);
+          Vibration.vibrate(100);
           props.addOrRemoveToCart(cartItem);
         }}
         favoriteList={props.favoriteList}
@@ -179,9 +181,9 @@ const HomeScreen = (props: Props) => {
     [props],
   );
 
-  const onPressCart = useCallback(() => {
+  const onPressCart = () => {
     props.navigation.navigate('Cart');
-  }, [props.navigation]);
+  };
 
   return (
     <View style={styles.container}>

@@ -137,6 +137,7 @@ import {
   Image,
   LayoutAnimation,
   StyleSheet,
+  Vibration,
   View,
   ViewStyle,
 } from 'react-native';
@@ -190,10 +191,12 @@ const CartScreen = (props: Props) => {
       <CartItems
         item={item}
         onPressMinus={cartItem => {
+          Vibration.vibrate(100);
           LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
           props.removeItem(cartItem);
         }}
         onPressAdd={cartItem => {
+          Vibration.vibrate(100);
           LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
           props.addMoreItem(cartItem);
         }}
@@ -237,6 +240,7 @@ const CartScreen = (props: Props) => {
           <Button
             style={styles.checkoutButton}
             onPress={() => {
+              Vibration.vibrate();
               toast.show('Your order has been created', {type: 'success'});
             }}
             tx="cart.proceedToCheckout"
