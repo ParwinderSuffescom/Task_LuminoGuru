@@ -17,6 +17,7 @@ export const images = {
   danger: require(PATH + 'danger.png'),
   warning: require(PATH + 'warning.png'),
   emptyCart: require(PATH + 'emptyCart.png'),
+  noData: require(PATH + 'noData.png'),
 } as const;
 
 export type AppImage = keyof typeof images;

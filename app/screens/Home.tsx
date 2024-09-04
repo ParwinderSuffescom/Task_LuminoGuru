@@ -1,6 +1,7 @@
 import {
   ActivityIndicator,
   FlatList,
+  Image,
   LayoutAnimation,
   SafeAreaView,
   StatusBar,
@@ -10,7 +11,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {colors} from '../theme';
+import {colors, images} from '../theme';
 import SearchBar from '../components/SearchBar';
 import {connect, ConnectedProps} from 'react-redux';
 import {AppStackScreenProps} from '../navigators';
@@ -126,15 +127,29 @@ const HomeScreen = (props: Props) => {
 
   const ListHeaderComponent = useMemo(
     () => (
-      <Text tx="home.recommended" size="xxl" style={styles.recommendedText} />
+      <Text
+        tx={searchText?.length ? 'home.searchedProducts' : 'home.recommended'}
+        size="xxl"
+        style={styles.recommendedText}
+      />
     ),
-    [],
+    [searchText?.length],
+  );
+
+  const ListEmptyComponent = useCallback(
+    () =>
+      props.productListLoading === 'loading' ? null : (
+        <View style={styles.emptyData}>
+          <Image source={images.noData} />
+          <Text size="md" tx="cart.noDataAvailable" />
+        </View>
+      ),
+    [props.productListLoading],
   );
 
   const ListFooterComponent = useMemo(
     () =>
-      props.productListLoading === 'loading' &&
-      props.productListData?.products?.length ? (
+      props.productListLoading === 'loading' ? (
         <View style={styles.footerLoading}>
           <ActivityIndicator color={colors.palette.primary} />
           <Text
@@ -144,7 +159,7 @@ const HomeScreen = (props: Props) => {
           />
         </View>
       ) : null,
-    [props.productListData?.products?.length, props.productListLoading],
+    [props.productListLoading],
   );
 
   const renderItem = useCallback(
@@ -177,7 +192,7 @@ const HomeScreen = (props: Props) => {
       <SafeAreaView style={{backgroundColor: colors.palette.primary}} />
 
       <View style={styles.headerContainer}>
-        {hideCartView ? null : (
+        {hideCartView || searchText?.length ? null : (
           <HomeHeader onPressCart={onPressCart} count={totalItemCount} />
         )}
         <SearchBar
@@ -187,7 +202,7 @@ const HomeScreen = (props: Props) => {
           }}
           value={searchText}
         />
-        {hideCartView ? null : <DeliveryView />}
+        {hideCartView || searchText?.length ? null : <DeliveryView />}
       </View>
       <FlatList
         ref={flatlistRef}
@@ -207,6 +222,7 @@ const HomeScreen = (props: Props) => {
         keyExtractor={item => item?.id.toString()}
         ListHeaderComponent={ListHeaderComponent}
         ListFooterComponent={ListFooterComponent}
+        ListEmptyComponent={ListEmptyComponent}
       />
     </View>
   );
@@ -216,6 +232,12 @@ const styles = StyleSheet.create({
   headerContainer: {
     paddingVertical: 10,
     backgroundColor: colors.palette.primary,
+  } as ViewStyle,
+
+  emptyData: {
+    marginTop: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
   } as ViewStyle,
 
   footerLoading: {alignSelf: 'center', marginVertical: 20} as ViewStyle,

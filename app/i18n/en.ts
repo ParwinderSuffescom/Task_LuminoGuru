@@ -9,6 +9,7 @@ const en = {
     deliveryTo: 'DELIVERY TO',
     withIn: 'WITH IN',
     shoppingCart: 'Shopping Cart ({{count}})',
+    searchedProducts: 'Searched Products',
   },
   cart: {
     proceedToCheckout: 'Proceed to checkout',
@@ -16,6 +17,7 @@ const en = {
     delivery: 'Delivery',
     total: 'Total',
     yourCartIsEmpty: 'Your cart is empty',
+    noDataAvailable: 'No data available',
   },
 };
 

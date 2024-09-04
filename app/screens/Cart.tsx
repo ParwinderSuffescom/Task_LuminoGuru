@@ -132,7 +132,14 @@
 // });
 
 import React, {memo, useCallback, useEffect, useState} from 'react';
-import {FlatList, Image, StyleSheet, View, ViewStyle} from 'react-native';
+import {
+  FlatList,
+  Image,
+  LayoutAnimation,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {AppStackScreenProps} from '../navigators';
 import {RootState} from '../store';
@@ -182,8 +189,14 @@ const CartScreen = (props: Props) => {
     ({item}: {item: Product}) => (
       <CartItems
         item={item}
-        onPressMinus={cartItem => props.removeItem(cartItem)}
-        onPressAdd={cartItem => props.addMoreItem(cartItem)}
+        onPressMinus={cartItem => {
+          LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+          props.removeItem(cartItem);
+        }}
+        onPressAdd={cartItem => {
+          LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+          props.addMoreItem(cartItem);
+        }}
       />
     ),
     [props],
@@ -236,11 +249,13 @@ const CartScreen = (props: Props) => {
 
 const styles = StyleSheet.create({
   mainContainer: {flexGrow: 1, paddingHorizontal: 10} as ViewStyle,
+
   emptyCart: {
     flex: 0.8,
     alignItems: 'center',
     justifyContent: 'center',
   } as ViewStyle,
+
   buttonContainer: {
     borderRadius: 15,
     backgroundColor: colors.palette.itemBackground,
@@ -250,15 +265,18 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 5,
   } as ViewStyle,
+
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 10,
   } as ViewStyle,
+
   list: {
     flex: spacing.one,
   },
+
   checkoutButton: {
     marginVertical: scale(20),
   },
