@@ -113,7 +113,7 @@ const HomeScreen = (props: Props) => {
 
   const onScroll = useThrottle(event => {
     const {y} = event.nativeEvent.contentOffset;
-    const buffer = 10;
+    const buffer = 50;
     if (y > 150 + buffer) {
       if (!hideCartView) {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
